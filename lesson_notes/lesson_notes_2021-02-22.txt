@@ -1,0 +1,67 @@
+# LESSON NOTES [2021-02-22]
+
+- Shebang lines (starting with #!) tell Unix-based operating systems what
+  program to run a file with.
+
+  Examples:
+    * #!/bin/python3
+    * #!/bin/bash
+
+- To make a file executable you need to give it the necessary permissions. Do so
+  with the following command:
+
+  sudo chmod +x FILENAME
+
+  Don't forget that to run a file outside of your path you have to prefix it
+  with the directory.
+
+  Examples:
+    * ./FILENAME (for current directory)
+    * ~/code/bank/FILENAME (~ always refers to your home directory)
+    * etc...
+
+  To 'install' a program by moving it into your path, run the following command:
+
+  sudo mv FILENAME /usr/local/bin/
+
+  Assuming you've already run the chmod command, it can now be run normally from
+  anywhere on your computer.
+
+- f-strings allow formatting by suffixing your variable name with a colon and
+  the desired parameters.
+
+  Examples
+    f'{math.pi}' -> '3.141592653589793'
+    f'{math.pi:.2f}' -> '3.14'
+    f'{math.pi:.2f}' -> '3.14'
+    f'{age}'         -> '21'
+    f'{age:4d}'      -> '  21'
+    f'{age:04d}'     -> '0021'
+    f'{year}'        -> '2021'
+    f'{year:,}'      -> '2,021'
+
+  This is all based on the printf() format from C, but you can also google
+  something like 'python f-string format cheat sheet' to get some handy info.
+
+- Python classes can inherit from other classes to expand on them.
+
+  Example:
+
+    class Object:
+        def __init__(self, name, value, weight):
+            self.name = name
+            self.value = value
+            self.weight = weight
+
+        def value_weight_ratio():
+            return self.value / self.weight
+
+    class WaterBottle(Object):
+        def drink(self):
+            self.weight -= 0.5
+            self.value -= 1
+
+    bottle = WaterBottle('Aquafina', 4, 2)
+    print(bottle.weight) -> 4
+    bottle.drink()
+    print(bottle.weight) -> 3.5
