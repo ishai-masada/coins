@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Sign up
+{% endblock %}
+
+{% block body %}
+<h1>Create your account</h1>
+<form method="POST">
+	<input type="text" name="name" placeholder="First name" required>
+	<br>
+	<input type="text" name="name" placeholder="Last name" required>
+	<br>
+	<input type="text" name="email" placeholder="Email address" required>
+	<br>
+	<input type="password" name="password" placeholder="New password" required>
+	<br>
+	<input type="password" name="confirm_password" placeholder="Confirm password" required>
+	<br>
+	<input type="submit">
+</form>
+
+{% endblock %}
